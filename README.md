@@ -378,6 +378,11 @@ You can download the PDF and Epub version of this repository from the latest run
 
     * It uses **VirtualDOM** instead of RealDOM considering that RealDOM manipulations are expensive.
     suppose you want to change an element in vanillas js. document.getElementbyId can be used but the time to find the node in the DOM tree is long and if the DOM changes are many it will take a long time and more memory can be used. React creates a copy of the DOM tree as virtual DOM in memory and when changes are done pushes as real DOM. Virtual DOM are so low in memory we can create multiple Virtual DOM. When we make changes to virtual DOM it uses algorithm to find the shortes path to that DOM. React compares one Virtual DOM with another Virtual DOM so its easy. 
+    ### Virtual Dom is like collection of objects
+        {
+            type:div,
+            data:asdasd
+        }
     * Supports **server-side rendering**.
     Client-Side
 Over here, you are completely running ReactJS on the browser. This is the simplest setup and includes most examples (including the ones on http://reactjs.org). The initial HTML rendered by the server is a placeholder and the entire UI is rendered in the browser once all your scripts load.
