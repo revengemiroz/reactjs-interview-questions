@@ -377,8 +377,23 @@ You can download the PDF and Epub version of this repository from the latest run
     The major features of React are:
 
     * It uses **VirtualDOM** instead of RealDOM considering that RealDOM manipulations are expensive.
+    suppose you want to change an element in vanillas js. document.getElementbyId can be used but the time to find the node in the DOM tree is long and if the DOM changes are many it will take a long time and more memory can be used. React creates a copy of the DOM tree as virtual DOM in memory and when changes are done pushes as real DOM. Virtual DOM are so low in memory we can create multiple Virtual DOM. When we make changes to virtual DOM it uses algorithm to find the shortes path to that DOM. React compares one Virtual DOM with another Virtual DOM so its easy. 
     * Supports **server-side rendering**.
-    * Follows **Unidirectional** data flow or data binding.
+    Client-Side
+Over here, you are completely running ReactJS on the browser. This is the simplest setup and includes most examples (including the ones on http://reactjs.org). The initial HTML rendered by the server is a placeholder and the entire UI is rendered in the browser once all your scripts load.
+
+Server-Side
+Think of ReactJS as a server-side templating engine here (like jade, handlebars, etc...). The HTML rendered by the server contains the UI as it should be and you do not wait for any scripts to load. Your page can be indexed by a search engine (if one does not execute any javascript).
+
+Since the UI is rendered on the server, none of your event handlers would work and there's no interactivity (you have a static page).
+
+Both
+Here, the initial render is on the server. Hence, the HTML received by the browser has the UI as it should be. Once the scripts are loaded, the virtual DOM is re-rendered once again to set up your components' event handlers.
+
+Over here, you need to make sure that you re-render the exact same virtual DOM (root ReactJS component) with the same props that you used to render on the server. Otherwise, ReactJS will complain that the server-side and client-side virtual DOMs don't match.
+
+Since ReactJS diffs the virtual DOMs between re-renders, the real DOM is not mutated. Only the event handlers are bound to the real DOM elements.
+    * Follows **Unidirectional** data flow or data binding. props
     * Uses **reusable/composable** UI components to develop the view.
 
 
